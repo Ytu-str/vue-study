@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 
+            v-bind:title="tit" 
+            v-text="msg"
+            v-on:click="showData"
+        ></h1>
+    </div>
+    <div id="jishu">
+        <button @click="decrease">-</button>
+        <span>{{number}}</span>
+        <button v-on:click="increase">+</button>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        Vue.createApp({
+            data(){
+                return{
+                    msg:"hello wrold",
+                    tit:"hello vue3"
+                }
+            },
+            methods: {
+                showData(){
+                    alert('hello vue 3')
+                }
+            },
+        }).mount("#app")
+        /**
+        1.如何操作html属性
+        2.如何操作html文本
+        3.如何绑定事件
+         */
+        Vue.createApp({
+            data(){
+                return{
+                    number:0
+                }
+            },
+            methods: {
+                decrease(){
+                    this.number--;
+                },
+                increase(){
+                    this.number++;
+                }
+            },
+        }).mount("#jishu")
+    </script>
+</body>
+</html>

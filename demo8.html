@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>根组件与组件树</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            methods: {
+                check(){
+                    console.log(this === rootComponent)   //this不等于app app是vue的应用实例对象，rootComponent是实例的配置项，this是根组建的配置项
+                }
+            },
+        })
+        //根组件，根组件没有template，根组件的template是mount挂在的页面
+        const rootComponent = app.mount("#app")
+    </script>
+</body>
+</html>

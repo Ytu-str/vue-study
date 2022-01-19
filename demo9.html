@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局组件与局部组件</title>
+</head>
+<body>
+    <div id="app">
+        <my-hello></my-hello>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        //可以使用components属性实现局部组件
+        const myCounter = {
+            template:`<h2>计数器</h2>`
+        }
+        //要使用，需要注册
+        const myHello = {
+            components:{
+                "my-counter":myCounter
+            },
+            template:`<h2>hello</h2>
+                      <my-counter></my-counter>  `
+        }
+        const app = Vue.createApp({
+            //注册局部组件
+            components:{
+                "my-hello":myHello
+            }
+        })
+        app.component("my-hello",{
+            template:`<h1>hello</h1>`
+        })
+        //使用component方法注册的组件是全局组件
+        app.mount("#app")
+    
+    </script>
+</body>
+</html>
