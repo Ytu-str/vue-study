@@ -1,15 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <div>
+      <Fruitlist/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Fruitlist from './components/Fruitlist.vue'
+import {ref,reactive,onMounted,computed} from 'vue'
+// 组合api
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    setup() {
+
+       return {
+
+       }
+    },
+    components:{
+        Fruitlist
+    }
 }
 </script>
